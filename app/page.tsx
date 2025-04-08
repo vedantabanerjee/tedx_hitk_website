@@ -42,18 +42,12 @@ export default function Home() {
               <span className="text-[#E62B1E]">TEDx</span>
               <span className="font-normal">HITKolkata</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-xl text-lg sm:text-xl md:text-2xl">
-              Ideas Worth Spreading: Innovating Tomorrow, Today
+            <p className="mx-auto mt-6 max-w-xl text-lg sm:text-xl md:text-4xl bg-clip-text bg-gradient-to-r from-[#f9d9d9] via-[#E62B1E] to-[#f9d9d9] text-transparent">
+              Redefining Reality
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button className="h-12 bg-[#E62B1E] px-8 text-base hover:bg-[#E62B1E]/90">
                 Register Now
-              </Button>
-              <Button
-                variant="outline"
-                className="h-12 border-white bg-transparent px-8 text-base text-white hover:bg-white/10"
-              >
-                Learn More
               </Button>
             </div>
           </div>
@@ -62,7 +56,7 @@ export default function Home() {
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <svg
-            className="h-6 w-6 text-white"
+            className="h-6 w-6 text-[#E62B1E]"
             fill="none"
             strokeWidth="2"
             viewBox="0 0 24 24"
@@ -78,42 +72,47 @@ export default function Home() {
       </section>
 
       {/* Event Date & Countdown */}
-      <section id="schedule" className="bg-gray-900 py-16">
+      <section id="schedule" className="bg-black py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-8 md:grid-cols-2">
               <div className="flex flex-col items-center justify-center space-y-4 md:items-start">
-                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
                   Mark Your Calendar
                 </h2>
                 <div className="flex items-center space-x-2 text-lg text-gray-300">
                   <CalendarDays className="h-5 w-5 text-[#E62B1E]" />
-                  <span>April 23, 2025</span>
+                  <span>23rd April, 2025.</span>
                 </div>
                 <div className="flex items-center space-x-2 text-lg text-gray-300">
                   <Clock className="h-5 w-5 text-[#E62B1E]" />
-                  <span>9:00 AM - 5:00 PM</span>
+                  <span>9:00 AM - 5:00 PM.</span>
                 </div>
                 <div className="flex items-center space-x-2 text-lg text-gray-300">
                   <MapPin className="h-5 w-5 text-[#E62B1E]" />
-                  <span>Heritage Institute of Technology, Kolkata</span>
+                  <span>Heritage Institute of Technology, Kolkata.</span>
                 </div>
                 <div className="mt-4 flex space-x-4">
                   <Button
                     variant="outline"
-                    className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                    className="border-gray-800 text-gray-300 hover:bg-[#E62B1E] hover:text-white transition-all duration-700"
                   >
                     Add to Google Calendar
                   </Button>
-                  <Button
-                    variant="outline"
-                    className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                  <Link
+                    href={"https://maps.app.goo.gl/XrssnC1hEvapW3518"}
+                    target="_blank"
                   >
-                    Add to iCal
-                  </Button>
+                    <Button
+                      variant="outline"
+                      className="border-gray-800 text-gray-300 hover:bg-[#E62B1E] hover:text-white transition-all duration-700"
+                    >
+                      Get Directions
+                    </Button>
+                  </Link>
                 </div>
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center hover:scale-110 transition-transform duration-700">
                 <CountdownTimer targetDate="2025-04-23T09:00:00" />
               </div>
             </div>
@@ -126,12 +125,11 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
                 Our Speakers
               </h2>
               <p className="mt-4 text-lg text-gray-400">
-                Meet the innovative minds who will share their ideas worth
-                spreading
+                Meet the innovative minds whoes ideas will redefine out reality
               </p>
             </div>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -163,21 +161,111 @@ export default function Home() {
                 linkedin="priyasharma"
               />
             </div>
-            <div className="mt-12 text-center">
-              <Button className="bg-transparent text-[#E62B1E] hover:bg-gray-900 border border-[#E62B1E]">
-                View All Speakers <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="bg-black py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="grid gap-12 md:grid-cols-2">
+              {/* About TEDx */}
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  About <span className="text-[#E62B1E]">TEDx</span>
+                </h2>
+                <div className="mt-6 space-y-4 text-gray-400">
+                  <p>
+                    TEDx is a program of local, self-organized events that bring
+                    people together to share a TED-like experience. At a TEDx
+                    event, TED Talks video and live speakers combine to spark
+                    deep discussion and connection.
+                  </p>
+                  <p>
+                    These local, self-organized events are branded TEDx, where x
+                    = independently organized TED event. The TED Conference
+                    provides general guidance for the TEDx program, but
+                    individual TEDx events are self-organized.
+                  </p>
+                  <p className="font-medium text-white">
+                    In the spirit of ideas worth spreading, TEDx is a program of
+                    local, self-organized events that bring people together to
+                    share a TED-like experience.
+                  </p>
+                </div>
+              </div>
+              {/* About HIT */}
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  About Heritage Institute of Technology
+                </h2>
+                <div className="mt-6 space-y-4 text-gray-400">
+                  <p>
+                    Heritage Institute of Technology, Kolkata (HITK) is one of
+                    the premier engineering colleges in Eastern India,
+                    established in 2001 by the Kalyan Bharti Trust.
+                  </p>
+                  <p>
+                    The institute is known for its academic excellence,
+                    state-of-the-art infrastructure, and vibrant campus life.
+                    HITK has consistently ranked among the top engineering
+                    colleges in India.
+                  </p>
+                  <p>
+                    With a strong focus on innovation and research, HITK
+                    provides the perfect platform for hosting TEDx, bringing
+                    together diverse perspectives and ideas worth spreading.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="flex mx-auto mt-12 max-w-full">
+              <div className="flex w-2/3">
+                <div>
+                  <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl bg-gradient-to-r bg-clip-text from-[#f9d9d9] via-[#E62B1E] to-[#f9d9d9] text-transparent">
+                    About Redefining Reality
+                  </h2>
+                  <div className="mt-6 space-y-4 text-gray-400">
+                    <p>
+                      TEDx is a program of local, self-organized events that
+                      bring people together to share a TED-like experience. At a
+                      TEDx event, TED Talks video and live speakers combine to
+                      spark deep discussion and connection.
+                    </p>
+                    <p>
+                      These local, self-organized events are branded TEDx, where
+                      x = independently organized TED event. The TED Conference
+                      provides general guidance for the TEDx program, but
+                      individual TEDx events are self-organized.
+                    </p>
+                    <p className="font-medium text-white">
+                      In the spirit of ideas worth spreading, TEDx is a program
+                      of local, self-organized events that bring people together
+                      to share a TED-like experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex w-1/3">
+                <Image
+                  src="/placeholder.svg?height=400&width=400"
+                  alt="TEDx Heritage Institute of Technology"
+                  width={400}
+                  height={400}
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Team Section - Only 3 Featured Members */}
-      <section className="bg-gray-900 py-16">
+      <section className="bg-gray-black py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
                 Meet Our Team
               </h2>
               <p className="mt-4 text-lg text-gray-400">
@@ -315,7 +403,7 @@ export default function Home() {
 
             <div className="mt-12 text-center">
               <Link href="/team">
-                <Button className="bg-transparent text-[#E62B1E] hover:bg-gray-800 border border-[#E62B1E]">
+                <Button className="bg-transparent text-[#E62B1E] hover:bg-[#E62B1E] hover:text-white border border-[#E62B1E] transition-all duration-500 hover:scale-110">
                   View All Team Members <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -324,69 +412,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="bg-black py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-            <div className="grid gap-12 md:grid-cols-2">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  About TEDx
-                </h2>
-                <div className="mt-6 space-y-4 text-gray-400">
-                  <p>
-                    TEDx is a program of local, self-organized events that bring
-                    people together to share a TED-like experience. At a TEDx
-                    event, TED Talks video and live speakers combine to spark
-                    deep discussion and connection.
-                  </p>
-                  <p>
-                    These local, self-organized events are branded TEDx, where x
-                    = independently organized TED event. The TED Conference
-                    provides general guidance for the TEDx program, but
-                    individual TEDx events are self-organized.
-                  </p>
-                  <p className="font-medium text-white">
-                    In the spirit of ideas worth spreading, TEDx is a program of
-                    local, self-organized events that bring people together to
-                    share a TED-like experience.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  About Heritage Institute
-                </h2>
-                <div className="mt-6 space-y-4 text-gray-400">
-                  <p>
-                    Heritage Institute of Technology, Kolkata (HITK) is one of
-                    the premier engineering colleges in Eastern India,
-                    established in 2001 by the Kalyan Bharti Trust.
-                  </p>
-                  <p>
-                    The institute is known for its academic excellence,
-                    state-of-the-art infrastructure, and vibrant campus life.
-                    HITK has consistently ranked among the top engineering
-                    colleges in India.
-                  </p>
-                  <p>
-                    With a strong focus on innovation and research, HITK
-                    provides the perfect platform for hosting TEDx, bringing
-                    together diverse perspectives and ideas worth spreading.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
-      <section id="faq" className="bg-gray-900 py-16">
+      <section id="faq" className="bg-gray-black py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
                 Frequently Asked Questions
               </h2>
               <p className="mt-4 text-lg text-gray-400">
@@ -434,54 +465,6 @@ export default function Home() {
                 ]}
               />
             </div>
-            <div className="mt-12 text-center">
-              <p className="text-gray-400">
-                Still have questions? Contact us at{" "}
-                <a
-                  href="mailto:info@tedxhitkolkata.org"
-                  className="text-[#E62B1E] hover:underline"
-                >
-                  info@tedxhitkolkata.org
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="bg-[#E62B1E] py-16 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Stay Updated
-            </h2>
-            <p className="mt-4 text-lg">
-              Subscribe to our newsletter for the latest updates about speakers,
-              schedule, and more.
-            </p>
-            <form className="mt-8 sm:flex sm:max-w-md sm:mx-auto">
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email-address"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="w-full rounded-md border-white bg-white/10 px-5 py-3 placeholder-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#E62B1E]"
-                placeholder="Enter your email"
-              />
-              <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                <button
-                  type="submit"
-                  className="flex w-full items-center justify-center rounded-md bg-white px-5 py-3 text-base font-medium text-[#E62B1E] hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#E62B1E]"
-                >
-                  Subscribe
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       </section>

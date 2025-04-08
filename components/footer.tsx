@@ -83,10 +83,10 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
-              Contact
+              Address
             </h3>
             <ul className="space-y-2">
-              <li className="text-gray-400">
+              <li className="text-gray-100">
                 Heritage Institute of Technology
               </li>
               <li className="text-gray-400">Chowbaga Road, Anandapur</li>
@@ -103,40 +103,10 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
-              Legal
+              Contact Organizers
             </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/terms" className="text-gray-400 hover:text-white">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-gray-400 hover:text-white"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/cookies"
-                  className="text-gray-400 hover:text-white"
-                >
-                  Cookie Policy
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="https://www.ted.com/about/our-organization/our-policies-terms"
-                  className="text-gray-400 hover:text-white"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  TED Terms
-                </a>
-              </li>
+            <ul className="space-y-2 text-gray-400 text-sm">
+              <li>Samraj Banik [Licensee]: +91 98300 00000</li>
             </ul>
           </div>
         </div>

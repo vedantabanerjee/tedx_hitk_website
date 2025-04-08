@@ -55,7 +55,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
                 {typedTimeLeft[interval as keyof TimeLeftType] || 0}
               </span>
             </div>
-            <span className="mt-2 text-sm font-medium uppercase text-gray-300">
+            <span className="mt-2 text-sm font-medium uppercase text-gray-400">
               {interval}
             </span>
           </div>
