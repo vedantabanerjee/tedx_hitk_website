@@ -1,20 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Mail, Linkedin } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import { Mail, Linkedin } from "lucide-react";
 
 interface OrganizerCardProps {
-  name: string
-  role: string
-  bio: string
-  image: string
-  email: string
-  linkedin?: string
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+  email: string;
+  linkedin?: string;
 }
 
-export default function OrganizerCard({ name, role, bio, image, email, linkedin }: OrganizerCardProps) {
-  const [isFlipped, setIsFlipped] = useState(false)
+export default function OrganizerCard({
+  name,
+  role,
+  bio,
+  image,
+  email,
+  linkedin,
+}: OrganizerCardProps) {
+  const [isFlipped, setIsFlipped] = useState(false);
 
   return (
     <div
@@ -23,11 +30,20 @@ export default function OrganizerCard({ name, role, bio, image, email, linkedin 
       onMouseLeave={() => setIsFlipped(false)}
       onClick={() => setIsFlipped(!isFlipped)}
     >
-      <div className={`relative h-full w-full duration-500 preserve-3d ${isFlipped ? "rotate-y-180" : ""}`}>
+      <div
+        className={`relative h-full w-full duration-500 preserve-3d ${
+          isFlipped ? "rotate-y-180" : ""
+        }`}
+      >
         {/* Front of card */}
         <div className="absolute inset-0 backface-hidden rounded-lg bg-white shadow-lg">
           <div className="relative h-[200px] w-full overflow-hidden rounded-t-lg">
-            <Image src={image || "/placeholder.svg"} alt={name} fill className="object-cover" />
+            <Image
+              src={image || "/placeholder.svg"}
+              alt={name}
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="p-6">
             <h3 className="text-xl font-bold text-gray-900">{name}</h3>
@@ -67,6 +83,5 @@ export default function OrganizerCard({ name, role, bio, image, email, linkedin 
         </div>
       </div>
     </div>
-  )
+  );
 }
-

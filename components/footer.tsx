@@ -1,10 +1,10 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react"
+import Link from "next/link";
+import Image from "next/image";
+import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black text-white border-t border-gray-800">
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
@@ -17,7 +17,9 @@ export default function Footer() {
                 className="h-10 w-auto"
               />
             </Link>
-            <p className="text-sm text-gray-400">This independent TEDx event is operated under license from TED.</p>
+            <p className="text-sm text-gray-400">
+              This independent TEDx event is operated under license from TED.
+            </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white">
                 <Facebook className="h-5 w-5" />
@@ -42,7 +44,9 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider">Navigation</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
+              Navigation
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/" className="text-gray-400 hover:text-white">
@@ -50,12 +54,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#speakers" className="text-gray-400 hover:text-white">
+                <Link
+                  href="#speakers"
+                  className="text-gray-400 hover:text-white"
+                >
                   Speakers
                 </Link>
               </li>
               <li>
-                <Link href="#schedule" className="text-gray-400 hover:text-white">
+                <Link
+                  href="#schedule"
+                  className="text-gray-400 hover:text-white"
+                >
                   Schedule
                 </Link>
               </li>
@@ -72,20 +82,29 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider">Contact</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
+              Contact
+            </h3>
             <ul className="space-y-2">
-              <li className="text-gray-400">Heritage Institute of Technology</li>
+              <li className="text-gray-400">
+                Heritage Institute of Technology
+              </li>
               <li className="text-gray-400">Chowbaga Road, Anandapur</li>
               <li className="text-gray-400">Kolkata, West Bengal 700107</li>
               <li>
-                <a href="mailto:info@tedxhitkolkata.org" className="text-gray-400 hover:text-white">
+                <a
+                  href="mailto:info@tedxhitkolkata.org"
+                  className="text-gray-400 hover:text-white"
+                >
                   info@tedxhitkolkata.org
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider">Legal</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
+              Legal
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/terms" className="text-gray-400 hover:text-white">
@@ -93,12 +112,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-400 hover:text-white">
+                <Link
+                  href="/privacy"
+                  className="text-gray-400 hover:text-white"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/cookies" className="text-gray-400 hover:text-white">
+                <Link
+                  href="/cookies"
+                  className="text-gray-400 hover:text-white"
+                >
                   Cookie Policy
                 </Link>
               </li>
@@ -117,12 +142,12 @@ export default function Footer() {
         </div>
         <div className="mt-8 border-t border-gray-800 pt-8">
           <p className="text-center text-xs text-gray-400">
-            &copy; {new Date().getFullYear()} TEDxHITKolkata. All rights reserved. This independent TEDx event is
-            operated under license from TED.
+            &copy; {new Date().getFullYear()} TEDxHITKolkata. All rights
+            reserved. This independent TEDx event is operated under license from
+            TED.
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

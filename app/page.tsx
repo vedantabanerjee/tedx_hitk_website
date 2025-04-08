@@ -1,34 +1,48 @@
-import Image from "next/image"
-import { CalendarDays, Clock, MapPin } from "lucide-react"
-import CountdownTimer from "@/components/countdown-timer"
-import SpeakerCard from "@/components/speaker-card"
-import OrganizerCard from "@/components/organizer-card"
-import Accordion from "@/components/accordion"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import Link from "next/link";
+import { CalendarDays, Clock, MapPin, ArrowRight } from "lucide-react";
+import CountdownTimer from "@/components/countdown-timer";
+import SpeakerCard from "@/components/speaker-card";
+import Accordion from "@/components/accordion";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center overflow-hidden bg-black py-20 text-center text-white md:py-32">
-        <div className="absolute inset-0 z-0">
+      {/* Hero Section - Full Screen */}
+      <section
+        id="home"
+        className="relative flex h-screen flex-col items-center justify-center overflow-hidden bg-black text-center text-white"
+      >
+        {/* Background Image - Desktop (hidden on mobile) */}
+        <div className="absolute inset-0 z-0 hidden md:block">
           <Image
-            src="/CollegeBuilding.png"
+            src="/placeholder.svg?height=1080&width=1920"
             alt="TEDx Heritage Institute of Technology"
             fill
             className="object-cover opacity-40"
             priority
           />
         </div>
+
+        {/* Background Image - Mobile (hidden on desktop) */}
+        <div className="absolute inset-0 z-0 block md:hidden">
+          <Image
+            src="/placeholder.svg?height=800&width=600"
+            alt="TEDx Heritage Institute of Technology"
+            fill
+            className="object-cover opacity-40"
+            priority
+          />
+        </div>
+
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl space-y-6">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl ">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               <span className="text-[#E62B1E]">TEDx</span>
-              <span className="font-normal">
-                HITKolkata
-              </span>
+              <span className="font-normal">HITKolkata</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-xl text-lg sm:text-xl">
+            <p className="mx-auto mt-6 max-w-xl text-lg sm:text-xl md:text-2xl">
               Ideas Worth Spreading: Innovating Tomorrow, Today
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -44,39 +58,56 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <svg
+            className="h-6 w-6 text-white"
+            fill="none"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
       </section>
 
       {/* Event Date & Countdown */}
-      <section className="bg-white py-16">
+      <section id="schedule" className="bg-gray-900 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-8 md:grid-cols-2">
               <div className="flex flex-col items-center justify-center space-y-4 md:items-start">
-                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   Mark Your Calendar
                 </h2>
-                <div className="flex items-center space-x-2 text-lg text-gray-700">
+                <div className="flex items-center space-x-2 text-lg text-gray-300">
                   <CalendarDays className="h-5 w-5 text-[#E62B1E]" />
                   <span>April 23, 2025</span>
                 </div>
-                <div className="flex items-center space-x-2 text-lg text-gray-700">
+                <div className="flex items-center space-x-2 text-lg text-gray-300">
                   <Clock className="h-5 w-5 text-[#E62B1E]" />
                   <span>9:00 AM - 5:00 PM</span>
                 </div>
-                <div className="flex items-center space-x-2 text-lg text-gray-700">
+                <div className="flex items-center space-x-2 text-lg text-gray-300">
                   <MapPin className="h-5 w-5 text-[#E62B1E]" />
                   <span>Heritage Institute of Technology, Kolkata</span>
                 </div>
                 <div className="mt-4 flex space-x-4">
                   <Button
                     variant="outline"
-                    className="border-gray-300 text-gray-700 hover:bg-gray-100"
+                    className="border-gray-700 text-gray-300 hover:bg-gray-800"
                   >
                     Add to Google Calendar
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-gray-300 text-gray-700 hover:bg-gray-100"
+                    className="border-gray-700 text-gray-300 hover:bg-gray-800"
                   >
                     Add to iCal
                   </Button>
@@ -91,14 +122,14 @@ export default function Home() {
       </section>
 
       {/* Speakers Section */}
-      <section className="bg-gray-50 py-16">
+      <section id="speakers" className="bg-black py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Our Speakers
               </h2>
-              <p className="mt-4 text-lg text-gray-600">
+              <p className="mt-4 text-lg text-gray-400">
                 Meet the innovative minds who will share their ideas worth
                 spreading
               </p>
@@ -131,115 +162,178 @@ export default function Home() {
                 twitter="priyasharma"
                 linkedin="priyasharma"
               />
-              <SpeakerCard
-                name="Dr. Michael Chen"
-                role="Neuroscientist"
-                bio="Researcher exploring the intersection of technology and human cognition."
-                image="/placeholder.svg?height=400&width=400"
-                talkTitle="Rewiring the Brain: The Future of Neural Interfaces"
-                twitter="michaelchen"
-                linkedin="michaelchen"
-              />
-              <SpeakerCard
-                name="Ananya Roy"
-                role="Digital Rights Activist"
-                bio="Advocate for privacy and digital freedom in the age of surveillance capitalism."
-                image="/placeholder.svg?height=400&width=400"
-                talkTitle="Reclaiming Our Digital Selves"
-                twitter="ananyaroy"
-                linkedin="ananyaroy"
-              />
-              <SpeakerCard
-                name="Samuel Okafor"
-                role="Renewable Energy Pioneer"
-                bio="Developer of innovative solar technologies for resource-constrained environments."
-                image="/placeholder.svg?height=400&width=400"
-                talkTitle="Democratizing Energy: Power to the People"
-                twitter="samokafor"
-                linkedin="samokafor"
-              />
+            </div>
+            <div className="mt-12 text-center">
+              <Button className="bg-transparent text-[#E62B1E] hover:bg-gray-900 border border-[#E62B1E]">
+                View All Speakers <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Organizers Section */}
-      <section className="bg-white py-16">
+      {/* Team Section - Only 3 Featured Members */}
+      <section className="bg-gray-900 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Meet Our Team
               </h2>
-              <p className="mt-4 text-lg text-gray-600">
+              <p className="mt-4 text-lg text-gray-400">
                 The dedicated individuals bringing TEDx to Heritage Institute of
                 Technology
               </p>
             </div>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <OrganizerCard
-                name="Arjun Malhotra"
-                role="Lead Organizer"
-                bio="Final year Computer Science student passionate about technology and innovation."
-                image="/placeholder.svg?height=400&width=400"
-                email="arjun@tedxhitkolkata.org"
-                linkedin="arjunmalhotra"
-              />
-              <OrganizerCard
-                name="Sneha Gupta"
-                role="Curation Lead"
-                bio="Biotechnology researcher with a keen interest in interdisciplinary ideas."
-                image="/placeholder.svg?height=400&width=400"
-                email="sneha@tedxhitkolkata.org"
-                linkedin="snehagupta"
-              />
-              <OrganizerCard
-                name="Vikram Singh"
-                role="Technical Director"
-                bio="Electronics engineer specializing in event production and audiovisual systems."
-                image="/placeholder.svg?height=400&width=400"
-                email="vikram@tedxhitkolkata.org"
-                linkedin="vikramsingh"
-              />
-              <OrganizerCard
-                name="Neha Sharma"
-                role="Marketing Lead"
-                bio="Digital marketing specialist with experience in brand strategy and social media."
-                image="/placeholder.svg?height=400&width=400"
-                email="neha@tedxhitkolkata.org"
-                linkedin="nehasharma"
-              />
-              <OrganizerCard
-                name="Rahul Dutta"
-                role="Sponsorship Coordinator"
-                bio="Business administration student with strong networking and partnership skills."
-                image="/placeholder.svg?height=400&width=400"
-                email="rahul@tedxhitkolkata.org"
-                linkedin="rahuldutta"
-              />
-              <OrganizerCard
-                name="Priya Mehta"
-                role="Volunteer Coordinator"
-                bio="Psychology major dedicated to building and managing effective teams."
-                image="/placeholder.svg?height=400&width=400"
-                email="priya@tedxhitkolkata.org"
-                linkedin="priyamehta"
-              />
+              <div className="rounded-lg bg-gray-800 p-6 text-center transition-all duration-300 hover:bg-gray-700">
+                <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full border-2 border-[#E62B1E]">
+                  <Image
+                    src="/placeholder.svg?height=400&width=400"
+                    alt="Arjun Malhotra"
+                    width={128}
+                    height={128}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white">Arjun Malhotra</h3>
+                <p className="text-[#E62B1E]">Lead Organizer</p>
+                <div className="mt-4 flex justify-center space-x-3">
+                  <a
+                    href="https://linkedin.com/in/arjunmalhotra"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 transition-colors hover:text-[#E62B1E]"
+                  >
+                    <svg
+                      className="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="mailto:arjun@tedxhitkolkata.org"
+                    className="text-gray-400 transition-colors hover:text-[#E62B1E]"
+                  >
+                    <svg
+                      className="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div className="rounded-lg bg-gray-800 p-6 text-center transition-all duration-300 hover:bg-gray-700">
+                <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full border-2 border-[#E62B1E]">
+                  <Image
+                    src="/placeholder.svg?height=400&width=400"
+                    alt="Sneha Gupta"
+                    width={128}
+                    height={128}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white">Sneha Gupta</h3>
+                <p className="text-[#E62B1E]">Curation Lead</p>
+                <div className="mt-4 flex justify-center space-x-3">
+                  <a
+                    href="https://linkedin.com/in/snehagupta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 transition-colors hover:text-[#E62B1E]"
+                  >
+                    <svg
+                      className="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="mailto:sneha@tedxhitkolkata.org"
+                    className="text-gray-400 transition-colors hover:text-[#E62B1E]"
+                  >
+                    <svg
+                      className="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div className="rounded-lg bg-gray-800 p-6 text-center transition-all duration-300 hover:bg-gray-700">
+                <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full border-2 border-[#E62B1E]">
+                  <Image
+                    src="/placeholder.svg?height=400&width=400"
+                    alt="Vikram Singh"
+                    width={128}
+                    height={128}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white">Vikram Singh</h3>
+                <p className="text-[#E62B1E]">Technical Director</p>
+                <div className="mt-4 flex justify-center space-x-3">
+                  <a
+                    href="https://linkedin.com/in/vikramsingh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 transition-colors hover:text-[#E62B1E]"
+                  >
+                    <svg
+                      className="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="mailto:vikram@tedxhitkolkata.org"
+                    className="text-gray-400 transition-colors hover:text-[#E62B1E]"
+                  >
+                    <svg
+                      className="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/team">
+                <Button className="bg-transparent text-[#E62B1E] hover:bg-gray-800 border border-[#E62B1E]">
+                  View All Team Members <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="bg-gray-50 py-16">
+      <section id="about" className="bg-black py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-12 md:grid-cols-2">
               <div>
-                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   About TEDx
                 </h2>
-                <div className="mt-6 space-y-4 text-gray-600">
+                <div className="mt-6 space-y-4 text-gray-400">
                   <p>
                     TEDx is a program of local, self-organized events that bring
                     people together to share a TED-like experience. At a TEDx
@@ -252,7 +346,7 @@ export default function Home() {
                     provides general guidance for the TEDx program, but
                     individual TEDx events are self-organized.
                   </p>
-                  <p className="font-medium">
+                  <p className="font-medium text-white">
                     In the spirit of ideas worth spreading, TEDx is a program of
                     local, self-organized events that bring people together to
                     share a TED-like experience.
@@ -260,10 +354,10 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   About Heritage Institute
                 </h2>
-                <div className="mt-6 space-y-4 text-gray-600">
+                <div className="mt-6 space-y-4 text-gray-400">
                   <p>
                     Heritage Institute of Technology, Kolkata (HITK) is one of
                     the premier engineering colleges in Eastern India,
@@ -288,14 +382,14 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-16">
+      <section id="faq" className="bg-gray-900 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Frequently Asked Questions
               </h2>
-              <p className="mt-4 text-lg text-gray-600">
+              <p className="mt-4 text-lg text-gray-400">
                 Everything you need to know about the event
               </p>
             </div>
@@ -341,7 +435,7 @@ export default function Home() {
               />
             </div>
             <div className="mt-12 text-center">
-              <p className="text-gray-600">
+              <p className="text-gray-400">
                 Still have questions? Contact us at{" "}
                 <a
                   href="mailto:info@tedxhitkolkata.org"
@@ -394,4 +488,3 @@ export default function Home() {
     </div>
   );
 }
-
